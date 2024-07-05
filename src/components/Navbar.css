@@ -1,0 +1,26 @@
+.nav-container{
+    position: fixed;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    z-index: 10;
+}
+
+.nav-container li{
+    margin-right: 50px;
+    display: inline-block;
+    list-style: none;
+    font-size: 20px;
+}
+
+.top{
+    margin-left: 10px;
+    color: white;
+}
+
+.nav-container a{
+    text-decoration: none;
+    color: white;
+}

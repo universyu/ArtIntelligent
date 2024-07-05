@@ -1,0 +1,24 @@
+.footer-container{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    height: 50px;
+    bottom: 1%;
+}
+
+.footer-container p{
+    margin-left: 70px;
+    font-size: 24px;
+    color: white;
+}
+
+.footer-container a img{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    margin-right: 70px;
+}
+
+
