@@ -1,7 +1,11 @@
+.hero{
+    width: 100vw;
+    height: 100vh;
+}
 .hero-container{
     background: url("../assets/stars.jpg");
     min-width: 100vw;
-    min-height: 100vh;
+    min-height: 20vh;
     background-position: center;
     background-size: cover;
     display: flex;
@@ -10,9 +14,9 @@
 }
 
 .hero-text{
-    position: fixed;
+    position: absolute;
     text-align: center;
-    top: 8%;
+    top: 5%;
     left: 50%;
     transform: translateX(-50%);
     background: -webkit-linear-gradient(16deg, #a1f8f0, #9261e5);
@@ -23,6 +27,7 @@
 .hero-text h1{
     font-size: 40px;
     margin: 0;
+    margin-bottom: 10px;
     padding: 0;
 }
 
@@ -34,15 +39,14 @@
 
 .grid-container{
     display: grid;
-    position:fixed;
     width: 80vw;
     height: 70vh;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%,-25%);
+    top: 2%;
+    left: 10%;
     grid-template-columns: repeat(2,1fr);
-    gap: 20px;
-
+    gap: 40px;
+    position: relative;
+    margin-bottom: 20px;
 }
 
 .grid-container a {
@@ -52,9 +56,7 @@
     max-height: 320px;
     list-style: none;
     position: relative;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
+   
 }
 
 
@@ -64,4 +66,10 @@
     position: absolute;
     object-fit: cover;
     object-position: 0 30%;
+    transition: all 300ms linear;
+}
+
+.grid-container a img:hover{
+    transform: scale(1.02);
+    box-shadow: #f3f2f2 0px 0px 20px;
 }

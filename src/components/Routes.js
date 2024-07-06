@@ -1,5 +1,6 @@
 import { lazy } from "react"
 import Hero from "../components/Hero.jsx";
+import NotFound from "../pages/NotFound.jsx";
 
 const Login = lazy( () => import("../pages/Login.jsx") )
 const About = lazy( () => import("../pages/About.jsx") )
@@ -26,4 +27,9 @@ export const appRoutes = [
         component: Login,
         requireLogined: false
     },
+    {
+        path:"*",
+        component: NotFound,
+        requireLogined: false
+    }
 ]
