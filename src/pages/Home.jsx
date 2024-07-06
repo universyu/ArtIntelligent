@@ -1,10 +1,10 @@
 import React from 'react';
 import "./Home.css"
 import {Link} from "react-router-dom";
-import elsa from "../assets/elsa1.jpg"
-import mi from "../assets/mi1.png"
-import xing from "../assets/xing1.png"
-import furina from "../assets/furina1.jpg"
+import elsa from "../assets/elsa.jpg"
+import mi from "../assets/mi.png"
+import xing from "../assets/xing.png"
+import furina from "../assets/furina.jpg"
 
 const Hero = () => {
     return (

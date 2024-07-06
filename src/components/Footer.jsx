@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <div className={"footer-container"}>
             <p>© 2024 Lios. All rights reserved</p>
-            <a href="https://countingstars.cc"><img src={github} alt=""/></a>
+            <a href="https://github.com/universyu/ArtIntelligent"><img src={github} alt=""/></a>
         </div>
     );
 };
