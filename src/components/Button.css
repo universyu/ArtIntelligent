@@ -1,0 +1,9 @@
+.button {
+    padding: 10px 20px; 
+    background: -webkit-linear-gradient(16deg, #a1f8f0, #9261e5);
+    border: none;
+    border-radius: 20px; 
+    color: white;
+    text-align: center;
+    font-size: 16px;  
+}

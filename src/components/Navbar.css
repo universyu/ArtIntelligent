@@ -16,11 +16,20 @@
 }
 
 .top{
-    margin-left: 10px;
+    margin-left: 2%;
+    cursor: pointer;
+    padding: 10px 20px; 
+    background: -webkit-linear-gradient(16deg, #de7ee5, #3d4be8);
+    border: none;
+    border-radius: 20px; 
     color: white;
+    text-align: center;
+    font-size: 16px;  
 }
 
 .nav-container a{
     text-decoration: none;
     color: white;
 }
+
+
