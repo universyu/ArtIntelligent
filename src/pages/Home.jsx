@@ -1,5 +1,5 @@
 import React from 'react';
-import "./Hero.css"
+import "./Home.css"
 import {Link} from "react-router-dom";
 import elsa from "../assets/elsa1.jpg"
 import mi from "../assets/mi1.png"

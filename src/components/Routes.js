@@ -1,5 +1,5 @@
 import { lazy } from "react"
-import Hero from "../components/Hero.jsx";
+import Home from "../pages/Home.jsx";
 import NotFound from "../pages/NotFound.jsx";
 
 const Login = lazy( () => import("../pages/Login.jsx") )
@@ -9,7 +9,7 @@ const Create = lazy( () => import("../pages/Create.jsx") )
 export const appRoutes = [
     {
         path: "/",
-        component: Hero,
+        component: Home,
         requireLogined: false
     },
     {
