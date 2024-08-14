@@ -1,0 +1,1 @@
+Those who seek the path and reach the pinnacle will ultimately converge, even if they follow different routes
