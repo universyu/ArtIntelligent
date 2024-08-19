@@ -1,7 +1,7 @@
 {
-    "common":{
-        "home": "Home",
-        "about": "About",
-        "create": "Create"
-    }
+  "common": {
+    "home": "Home",
+    "about": "About",
+    "create": "Create"
+  }
 }
