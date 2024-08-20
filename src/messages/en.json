@@ -2,6 +2,7 @@
   "common": {
     "home": "Home",
     "about": "About",
-    "create": "Create"
+    "create": "Create",
+    "top": "Top"
   }
 }

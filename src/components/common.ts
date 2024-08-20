@@ -9,7 +9,7 @@ export const NormalLi = styled("li")({
 
 export const ColorfulButton = styled(Button)({
   padding: "10px 20px",
-  background: "linear-gradient(16deg, #a1f8f0, #9261e5)",
+  background: "linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%)",
   border: "none",
   borderRadius: "20px",
   fontSize: "16px",

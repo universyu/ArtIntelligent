@@ -1,8 +1,13 @@
 export default function AboutPage() {
-    return (
-        <>
-            About me
-        </>
-    )
-
+  return (
+    <>
+      <div
+        style={{
+          color: "white",
+        }}
+      >
+        About me
+      </div>
+    </>
+  );
 }

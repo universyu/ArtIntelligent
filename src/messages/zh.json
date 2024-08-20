@@ -2,6 +2,7 @@
   "common": {
     "home": "主页",
     "about": "关于",
-    "create": "创作"
+    "create": "创作",
+    "top": "回到顶部"
   }
 }

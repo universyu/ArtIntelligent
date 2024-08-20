@@ -1,10 +1,10 @@
 import React from "react";
 import { routes, RouteKey } from "../Constants";
-import { useLocale } from "next-intl";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
-import { NormalLi } from "@/components/common";
-import { ColorfulButton } from "@/components/common";
+import { NormalLi, ColorfulButton } from "@/components/common";
+import NavbarClient from "@/components/NavbarClient";
+
 type NavbarProps = {
   style?: React.CSSProperties;
 };
@@ -12,20 +12,12 @@ type NavbarProps = {
 const Navbar: React.FC<NavbarProps> = ({ style }) => {
   const locale = useLocale();
   const t = useTranslations("common");
+
   return (
-    <nav
-      style={{
-        ...style,
-        display: "flex",
-        justifyContent: "space-between",
-        padding: "0 5em",
-      }}
-    >
-      1
+    <NavbarClient topText={t("top")}>
       <ul
         style={{
           display: "flex",
-          justifyContent: "flex-end",
           gap: "5em",
           padding: 0,
           margin: 0,
@@ -44,7 +36,7 @@ const Navbar: React.FC<NavbarProps> = ({ style }) => {
           );
         })}
       </ul>
-    </nav>
+    </NavbarClient>
   );
 };
 
