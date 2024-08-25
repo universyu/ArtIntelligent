@@ -18,3 +18,10 @@ export const ColorfulButton = styled(Button)({
   textAlign: "center",
   textTransform: "none",
 });
+
+export const ChildCenterDiv = styled("div")({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+});

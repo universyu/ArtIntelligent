@@ -1,9 +1,16 @@
 import { useTranslations } from "next-intl";
+import TextInput from "@/components/TextInput";
+import { ChildCenterDiv } from "@/components/common";
 export default function CreatePage() {
   const t = useTranslations("common");
   return (
-    <>
-      <div>{t("create")}</div>
-    </>
+    <ChildCenterDiv
+      style={{
+        width: "100%",
+        height: "100%",
+      }}
+    >
+      <TextInput randomTitle={t("random")} buttonText={t("story_board")} />
+    </ChildCenterDiv>
   );
 }
