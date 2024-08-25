@@ -17,6 +17,7 @@ export const ColorfulButton = styled(Button)({
   color: "black",
   textAlign: "center",
   textTransform: "none",
+  whiteSpace: "nowrap",
 });
 
 export const ChildCenterDiv = styled("div")({
