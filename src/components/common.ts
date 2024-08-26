@@ -26,3 +26,19 @@ export const ChildCenterDiv = styled("div")({
   alignItems: "center",
   justifyContent: "center",
 });
+
+export const ActionButton = styled(Button)({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  textTransform: "none",
+  borderRadius: "8px",
+  boxSizing: "border-box",
+  boxShadow: "none",
+  "&:hover": {
+    boxShadow: "none",
+  },
+  "&:active": {
+    boxShadow: "none",
+  },
+});

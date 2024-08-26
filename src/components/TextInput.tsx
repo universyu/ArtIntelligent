@@ -1,25 +1,50 @@
 "use client";
 import React, { useState } from "react";
 import Random from "@/assets/icons/Random";
-import { Button, Paper, TextField } from "@mui/material";
+import { Paper, TextField } from "@mui/material";
+import { ActionButton } from "@/components/common";
+import { useGlobalStore } from "@/globalStore";
 interface TextInputProps {
-  randomTitle?: string;
-  placeHoder?: string;
+  randomTitle: string;
   buttonText: string;
 }
 
-const TextInput: React.FC<TextInputProps> = ({
-  randomTitle,
-  placeHoder,
-  buttonText,
-}) => {
+const TextInput: React.FC<TextInputProps> = ({ randomTitle, buttonText }) => {
   const [textInput, setTextInput] = useState("");
+  const { setStoryboaedPrompts } = useGlobalStore();
   const handleRandom = () => {};
+  const handleStoryboard = async () => {
+    try {
+      const payload = {
+        prompt: textInput,
+        steps: 25,
+        override_settings: {
+          sd_model_checkpoint: "AnythingXL_xl",
+        },
+        width: 512,
+        height: 512,
+      };
+      const response = await fetch("/api/sd", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch data from target endpoint");
+      }
+      const base64Image = await response.text();
+      setStoryboaedPrompts([base64Image]);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
   return (
     <Paper
       style={{
         width: 432,
-        height: 482,
         padding: "32px 24px",
         display: "flex",
         flexDirection: "column",
@@ -36,6 +61,7 @@ const TextInput: React.FC<TextInputProps> = ({
           alignItems: "center",
           gap: 16,
           cursor: "pointer",
+          marginBottom: 16,
         }}
         onMouseOver={(e) => {
           e.currentTarget.style.backgroundColor = "rgba(0, 255, 0, 0.3)";
@@ -77,6 +103,19 @@ const TextInput: React.FC<TextInputProps> = ({
           },
         }}
       />
+      <ActionButton
+        variant="contained"
+        style={{
+          color: "white",
+          marginTop: 32,
+          height: "48px",
+          backgroundColor: "#00ae42",
+          fontSize: 20,
+        }}
+        onClick={handleStoryboard}
+      >
+        {buttonText}
+      </ActionButton>
     </Paper>
   );
 };

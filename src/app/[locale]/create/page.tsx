@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl";
 import TextInput from "@/components/TextInput";
 import { ChildCenterDiv } from "@/components/common";
 export default function CreatePage() {
-  const t = useTranslations("common");
+  const t = useTranslations("sd");
   return (
     <ChildCenterDiv
       style={{

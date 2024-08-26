@@ -9,7 +9,7 @@ const initStates = {
   storyboaedPrompts: [],
 };
 
-export const usePromptStore = create<storeState>((set) => ({
+export const useGlobalStore = create<storeState>((set) => ({
   ...initStates,
   setStoryboaedPrompts: (prompts: string[]) => {
     set({ storyboaedPrompts: prompts });
