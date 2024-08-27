@@ -1,7 +1,7 @@
 {
     "functions": {
-      "api/sd.ts": {
-        "maxDuration": 30
+      "api/sd.js": {
+        "maxDuration": 600
       }
     }
   }
