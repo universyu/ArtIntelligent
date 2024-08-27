@@ -1,6 +1,6 @@
 {
     "functions": {
-      "api/sd.js": {
+      "/src/api/sd.js": {
         "maxDuration": 600
       }
     }
