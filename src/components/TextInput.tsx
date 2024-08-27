@@ -15,21 +15,12 @@ const TextInput: React.FC<TextInputProps> = ({ randomTitle, buttonText }) => {
   const handleRandom = () => {};
   const handleStoryboard = async () => {
     try {
-      const payload = {
-        prompt: textInput,
-        steps: 25,
-        override_settings: {
-          sd_model_checkpoint: "AnythingXL_xl",
-        },
-        width: 512,
-        height: 512,
-      };
       const response = await fetch("/api/sd", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'text/plain'
         },
-        body: JSON.stringify(payload),
+        body: textInput,
       });
 
       if (!response.ok) {

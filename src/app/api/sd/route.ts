@@ -1,17 +1,15 @@
 export async function POST(request: Request): Promise<Response> {
   try {
-    const prompt = await request.text();
-
+    const promptInput = await request.text();
     const payload = {
-      prompt: prompt,
+      prompt: promptInput,
       steps: 25,
       override_settings: {
         sd_model_checkpoint: "AnythingXL_xl",
       },
-      width: 512,
-      height: 512,
+      width: 1024,
+      height: 1024,
     };
-
     const response = await fetch("https://sd.oldkingok.cc/sdapi/v1/txt2img", {
       method: "POST",
       headers: {
