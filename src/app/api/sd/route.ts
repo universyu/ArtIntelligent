@@ -1,9 +1,10 @@
-export const maxDuration = 60
+import { negative_prompt } from "@/Constants";
 export async function POST(request: Request): Promise<Response> {
   try {
     const promptInput = await request.text();
     const payload = {
       prompt: promptInput,
+      negative_prompt: negative_prompt,
       steps: 25,
       override_settings: {
         sd_model_checkpoint: "AnythingXL_xl",
