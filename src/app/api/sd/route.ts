@@ -4,7 +4,7 @@ export async function POST(request: Request): Promise<Response> {
     const promptInput = await request.text();
     const payload = {
       prompt: promptInput,
-      steps: 10,
+      steps: 25,
       override_settings: {
         sd_model_checkpoint: "AnythingXL_xl",
       },
