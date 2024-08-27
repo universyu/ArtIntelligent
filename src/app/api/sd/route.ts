@@ -1,7 +1,4 @@
-export function GET(){
-  return new Response("hello")
-}
-
+export const maxDuration =  5 * 60; // 5 minutes
 export async function POST(request: Request): Promise<Response> {
   try {
     const promptInput = await request.text();
