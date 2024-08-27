@@ -30,9 +30,9 @@ const NavbarClient: React.FC<NavbarClientProps> = ({ topText, children }) => {
       style={{
         display: "flex",
         justifyContent: "space-between",
-        gap: "70em",
         alignItems: "center",
         padding: "1em 5em",
+        boxSizing: "border-box",
         position: "fixed",
         top: 0,
         left: 0,

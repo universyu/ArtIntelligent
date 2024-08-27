@@ -1,3 +1,7 @@
+export function GET(){
+  return new Response("hello")
+}
+
 export async function POST(request: Request): Promise<Response> {
   try {
     const promptInput = await request.text();
