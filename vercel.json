@@ -1,0 +1,8 @@
+{
+    "functions": {
+      "api/sd.ts": {
+        "maxDuration": 30
+      }
+    }
+  }
+  
