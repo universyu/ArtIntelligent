@@ -8,8 +8,8 @@ export async function POST(request: Request): Promise<Response> {
       override_settings: {
         sd_model_checkpoint: "AnythingXL_xl",
       },
-      width: 512,
-      height: 512,
+      width: 1024,
+      height: 1024,
     };
     const response = await fetch("https://sd.oldkingok.cc/sdapi/v1/txt2img", {
       method: "POST",
