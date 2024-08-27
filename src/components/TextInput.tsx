@@ -10,8 +10,8 @@ interface TextInputProps {
 }
 
 const TextInput: React.FC<TextInputProps> = ({ randomTitle, buttonText }) => {
-  const [textInput, setTextInput] = useState("");
-  const { setStoryboaedPrompts } = useGlobalStore();
+  const [textInput, setTextInput] = useState<string>("");
+  const { setStoryboardedPrompts } = useGlobalStore();
   const handleRandom = () => {};
   const handleStoryboard = async () => {
     try {
@@ -27,7 +27,7 @@ const TextInput: React.FC<TextInputProps> = ({ randomTitle, buttonText }) => {
         throw new Error("Failed to fetch data from target endpoint");
       }
       const base64Image = await response.text();
-      setStoryboaedPrompts([base64Image]);
+      setStoryboardedPrompts([base64Image]);
     } catch (error) {
       console.error("Error:", error);
     }

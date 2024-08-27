@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "@/components/Image";
+import ImageContainer from "@/components/ImageContainer";
 export default function Home() {
-  return <Image />;
+  return <ImageContainer />;
 }

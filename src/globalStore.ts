@@ -1,18 +1,24 @@
 import { create } from "zustand";
 
 interface storeState {
-  storyboaedPrompts: string[];
-  setStoryboaedPrompts: (prompts: string[]) => void;
+  storyboardedPrompts: string[];
+  setStoryboardedPrompts: (prompts: string[]) => void;
+  storyboardedImages: string[]
+  setStoryboardedImages: (images: string[]) => void;  
 }
 
 const initStates = {
-  storyboaedPrompts: [],
+  storyboardedPrompts: [],
+  storyboardedImages: [], 
 };
 
 export const useGlobalStore = create<storeState>((set) => ({
   ...initStates,
-  setStoryboaedPrompts: (prompts: string[]) => {
-    set({ storyboaedPrompts: prompts });
+  setStoryboardedPrompts: (prompts: string[]) => {
+    set({ storyboardedPrompts: prompts });
+  },
+  setStoryboardedImages: (images: string[]) => {
+    set({ storyboardedImages: images });
   },
   reset: () => {
     set(initStates);
