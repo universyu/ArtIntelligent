@@ -1,14 +1,15 @@
+export const maxDuration = 60
 export async function POST(request: Request): Promise<Response> {
   try {
     const promptInput = await request.text();
     const payload = {
       prompt: promptInput,
-      steps: 25,
+      steps: 10,
       override_settings: {
         sd_model_checkpoint: "AnythingXL_xl",
       },
-      width: 1024,
-      height: 1024,
+      width: 512,
+      height: 512,
     };
     const response = await fetch("https://sd.oldkingok.cc/sdapi/v1/txt2img", {
       method: "POST",
