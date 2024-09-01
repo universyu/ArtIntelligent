@@ -4,7 +4,7 @@ import { Paper, TextField } from "@mui/material";
 import { ActionButton } from "@/components/common";
 import { useGlobalStore } from "@/globalStore";
 import ImageContainer from "@/components/ImageContainer";
-
+import { sendRequestToCoze } from "@/utils/coze";
 interface StoryboardedTextsProps {
   buttonText: string;
 }
@@ -21,33 +21,24 @@ const StoryboardedTexts: React.FC<StoryboardedTextsProps> = ({
     setStoryboardedImages,
   } = useGlobalStore();
   const handleGenerate = async () => {
-    try {
-      const response = await fetch("/api/prompt", {
-        method: "POST",
-        headers: {
-          "Content-Type": "text/plain",
-        },
-        body: storyboardedPrompts[promptIndex],
+    sendRequestToCoze(storyboardedPrompts[promptIndex], "7407627249333862450")
+      .then(async (result) => {
+        const prompt = JSON.parse(result.data).output;
+        console.log(prompt);
+        const imgResponse = await fetch("/api/sd", {
+          method: "POST",
+          headers: {
+            "Content-Type": "text/plain",
+          },
+          body: prompt,
+        });
+        const newImages = [...storyboardedImages];
+        newImages[promptIndex] = await imgResponse.text();
+        setStoryboardedImages(newImages);
+      })
+      .catch((error) => {
+        console.error(error);
       });
-
-      if (!response.ok) {
-        throw new Error("Failed to fetch data from target endpoint");
-      }
-      const ret = await response.json();
-      const prompt = JSON.parse(ret.data).output;
-      const imgResponse = await fetch("/api/sd", {
-        method: "POST",
-        headers: {
-          "Content-Type": "text/plain",
-        },
-        body: prompt,
-      });
-      const newImages = [...storyboardedImages];
-      newImages[promptIndex] = await imgResponse.text();
-      setStoryboardedImages(newImages);
-    } catch (error) {
-      console.error("Error:", error);
-    }
   };
   const handlePromptChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newTexts = [...storyboardedPrompts];

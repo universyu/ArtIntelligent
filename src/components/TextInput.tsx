@@ -4,6 +4,7 @@ import Random from "@/assets/icons/Random";
 import { Paper, TextField } from "@mui/material";
 import { ActionButton } from "@/components/common";
 import { useGlobalStore } from "@/globalStore";
+import { sendRequestToCoze } from "@/utils/coze";
 interface TextInputProps {
   randomTitle: string;
   buttonText: string;
@@ -18,24 +19,14 @@ const TextInput: React.FC<TextInputProps> = ({ randomTitle, buttonText }) => {
   }, [isStoryboarded]);
   const handleRandom = () => {};
   const handleStoryboard = async () => {
-    try {
-      const response = await fetch("/api/storyboard", {
-        method: "POST",
-        headers: {
-          "Content-Type": "text/plain",
-        },
-        body: textInput,
+    sendRequestToCoze(textInput, "7407621132809191433")
+      .then(async (response) => {
+        setStoryboardedPrompts(JSON.parse(response.data).output);
+        setIsStoryboarded(true);
+      })
+      .catch((error) => {
+        console.error(error);
       });
-
-      if (!response.ok) {
-        throw new Error("Failed to fetch data from target endpoint");
-      }
-      const ret = await response.json();
-      setStoryboardedPrompts(JSON.parse(ret.data).output);
-      setIsStoryboarded(true);
-    } catch (error) {
-      console.error("Error:", error);
-    }
   };
   return isTextInputOpen ? (
     <Paper
