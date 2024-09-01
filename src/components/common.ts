@@ -22,7 +22,6 @@ export const ColorfulButton = styled(Button)({
 
 export const ChildCenterDiv = styled("div")({
   display: "flex",
-  flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
 });

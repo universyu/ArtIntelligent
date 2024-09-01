@@ -20,7 +20,6 @@ export async function POST(request: Request): Promise<Response> {
       },
       body: JSON.stringify(payload),
     });
-
     if (!response.ok) {
       throw new Error("Failed to fetch data from target endpoint");
     }

@@ -7,6 +7,7 @@
   },
   "sd": {
     "story_board": "分镜",
-    "random": "随机文本"
+    "random": "随机文本",
+    "generate": "生成"
   }
 }

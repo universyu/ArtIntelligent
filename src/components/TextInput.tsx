@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import Random from "@/assets/icons/Random";
 import { Paper, TextField } from "@mui/material";
 import { ActionButton } from "@/components/common";
@@ -11,14 +11,18 @@ interface TextInputProps {
 
 const TextInput: React.FC<TextInputProps> = ({ randomTitle, buttonText }) => {
   const [textInput, setTextInput] = useState<string>("");
-  const { setStoryboardedPrompts } = useGlobalStore();
+  const { setStoryboardedPrompts, setIsStoryboarded, isStoryboarded } =
+    useGlobalStore();
+  const isTextInputOpen = useMemo(() => {
+    return !isStoryboarded;
+  }, [isStoryboarded]);
   const handleRandom = () => {};
   const handleStoryboard = async () => {
     try {
-      const response = await fetch("/api/sd", {
+      const response = await fetch("/api/storyboard", {
         method: "POST",
         headers: {
-          'Content-Type': 'text/plain'
+          "Content-Type": "text/plain",
         },
         body: textInput,
       });
@@ -26,13 +30,14 @@ const TextInput: React.FC<TextInputProps> = ({ randomTitle, buttonText }) => {
       if (!response.ok) {
         throw new Error("Failed to fetch data from target endpoint");
       }
-      const base64Image = await response.text();
-      setStoryboardedPrompts([base64Image]);
+      const ret = await response.json();
+      setStoryboardedPrompts(JSON.parse(ret.data).output);
+      setIsStoryboarded(true);
     } catch (error) {
       console.error("Error:", error);
     }
   };
-  return (
+  return isTextInputOpen ? (
     <Paper
       style={{
         width: 432,
@@ -108,7 +113,7 @@ const TextInput: React.FC<TextInputProps> = ({ randomTitle, buttonText }) => {
         {buttonText}
       </ActionButton>
     </Paper>
-  );
+  ) : null;
 };
 
 export default TextInput;
